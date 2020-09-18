@@ -1,0 +1,28 @@
+﻿@using Bookstore.Models
+@model List<RecentBook>
+<section class="recent-book-sec">
+    <div class="container">
+        <div class="title">
+            <h2>highly recommendes books</h2>
+            <hr>
+        </div>
+        <div class="row">
+            @{
+                foreach (var item in Model)
+                {
+                    <div class="col-lg-2 col-md-3 col-sm-4">
+                        <div class="item">
+                            <img src='@Url.Content("~/images/"+item.Image)' />
+                            <h3>@item.RecentBook1</h3>
+                            <h6><span class="price">$@item.Price</span> / <a href='@Url.Action("product_single", "Product_single")'>Buy Now</a></h6>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+
+        <div class="btn-sec">
+            <a href='@Url.Action("product_single", "Product_single")' class="btn gray-btn">view all books</a>
+        </div>
+    </div>
+</section>
